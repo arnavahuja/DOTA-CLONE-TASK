@@ -21,12 +21,14 @@ public class player_shooting : MonoBehaviour
 void shoot ()
 {
  RaycastHit hit;
+ 
   if(Physics.Raycast(transform.position,transform.forward,out hit,range))
     {
      Debug.Log(hit.transform.name);
-     GameObject newbullet = Instantiate(bullet,transform.position,transform.rotation) as GameObject;
-     newbullet.GetComponent<Rigidbody>().velocity = (hit.point - transform.position).normalized * speed;
-     }
+      }
+GameObject newbullet = Instantiate(bullet,transform.position,transform.rotation) as GameObject;
+newbullet.GetComponent<Rigidbody>().velocity = (transform.forward).normalized * speed;
+     
 }
 }
 
